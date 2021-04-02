@@ -13,8 +13,34 @@ export class AppComponent {
   instance1 = null;
   instance2 = null;
 
+  /*
+  getWasm(url:string,f:(x:any)=>void):any {
+    var ModuleHogeInstance = typeof ModuleHogeInstance !== 'undefined' ? ModuleHogeInstance : {};
+    fetch(url)
+      .then(response => response.arrayBuffer())
+      .then(buffer => new Uint8Array(buffer))
+      .then(binary => {
+        var moduleArgs = {
+          wasmBinary: binary,
+          onRuntimeInitialized: function () {
+            console.log('initialized');
+          }
+        };
+        ModuleHogeInstance = ModuleHoge(moduleArgs);
+        ModuleHogeInstance.then((m) => {
+          f(m);
+        });
+      });
+
+  }
+  */
   click1(): void {
     console.log('押されたよ');
+
+    /*
+    this.getWasm('../assets/test1.wasm',(m)=>{this.instance1=m;});
+    this.getWasm('../assets/test2.wasm',(m)=>{this.instance2=m;});
+    */
 
     var ModuleHogeInstance = typeof ModuleHogeInstance !== 'undefined' ? ModuleHogeInstance : {};
     fetch('../assets/test1.wasm')
@@ -33,6 +59,7 @@ export class AppComponent {
         });
       });
 
+
     var ModuleFugaInstance = typeof ModuleFugaInstance !== 'undefined' ? ModuleFugaInstance : {};
     fetch('../assets/test2.wasm')
       .then(response => response.arrayBuffer())
@@ -49,13 +76,13 @@ export class AppComponent {
           this.instance2 = m;
         });
       });
-
   }
 
   click2(): void {
     console.log('押されたよ2');
     //console.log(this.instance);
 
+    /*
     var ret = this.instance1.ccall(
       'multiply', // function name
       'number', // return type
@@ -71,6 +98,13 @@ export class AppComponent {
       ['Hello World!'] // parameter
     );
     console.log('get_length: ' + ret2);
+    */
+
+    var ret1 = this.multiply(7,8);
+    console.log('multiply: '+ret1);
+
+    var ret2 = this.getLength('abcd');
+    console.log('get_length:'+ ret2);
 
     var ret3 = this.plus(100, 11);
     console.log('plus: ' + ret3);
@@ -79,9 +113,8 @@ export class AppComponent {
     console.log('get_length2: ' + ret4);
   }
 
-  /*
   multiply(a: number, b: number): number {
-    var ret = Module.ccall(
+    var ret = this.instance1.ccall(
       'multiply', // function name
       'number', // return type
       ['number', 'number'], // argument types
@@ -91,7 +124,7 @@ export class AppComponent {
   }
 
   getLength(s: string): number {
-    var ret = Module.ccall(
+    var ret = this.instance1.ccall(
       'get_length', // function name
       'number', // return type
       ['string'], // argument type
@@ -99,7 +132,6 @@ export class AppComponent {
     );
     return ret;
   }
-  */
 
   plus(a: number, b: number): number {
     var ret = this.instance2.ccall(
