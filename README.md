@@ -48,3 +48,7 @@ $ python -m http.server 8000
 How to make Angular and WebAssembly work together
 
 https://componenthouse.com/2018/02/15/how-to-make-angular-and-webassembly-work-together/
+
+WebAssemblyの使用方法と初期化、エラーハンドリング
+https://medium.com/axip/webassembly%E3%81%AE%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E3%81%A8%E5%88%9D%E6%9C%9F%E5%8C%96-%E3%82%A8%E3%83%A9%E3%83%BC%E3%83%8F%E3%83%B3%E3%83%89%E3%83%AA%E3%83%B3%E3%82%B0-5b0a8c3968df
+モジュール化で参考になりました

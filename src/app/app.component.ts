@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
 declare var Module:any;
+declare var ModuleHoge:any;
 
 @Component({
   selector: 'app-root',
@@ -9,15 +10,55 @@ declare var Module:any;
 })
 export class AppComponent {
   title = 'test-wasm';
+  instance = null;
 
   click1():void {
     console.log('押されたよ');
-
+    
+    var ModuleHogeInstance = typeof ModuleHogeInstance !== 'undefined' ? ModuleHogeInstance : {};
+    fetch('../assets/test1.wasm')
+    .then(response => response.arrayBuffer())
+    .then(buffer => new Uint8Array(buffer))
+    .then(binary => {
+    var moduleArgs = {
+    wasmBinary: binary,
+    onRuntimeInitialized: function () {
+    console.log('initialized');
+    }
+    };
+    ModuleHogeInstance = ModuleHoge(moduleArgs);
+    ModuleHogeInstance.then((m)=>{
+      this.instance = m;
+    });
+    });
+    /*
     var v1 = this.multiply(5,20);
     var v2 = this.getLength('abcdef');
 
     console.log(`v1: ${v1}`);
     console.log(`v2: ${v2}`);
+    */
+  }
+
+  click2():void {
+    console.log('押されたよ2');
+    //console.log(this.instance);
+
+    var ret = this.instance.ccall(
+      'multiply', // function name
+      'number', // return type
+      ['number', 'number'], // argument types
+      [3, 9] // parameters
+  );
+  console.log(ret);
+
+  var ret2 = this.instance.ccall(
+    'get_length', // function name
+    'number', // return type
+    ['string'], // argument type
+    ['Hello World!'] // parameter
+);
+console.log(ret2);
   }
 
   multiply(a: number, b: number): number
