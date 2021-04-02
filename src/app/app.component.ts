@@ -13,35 +13,36 @@ export class AppComponent {
   instance1 = null;
   instance2 = null;
 
-  /*
-  getWasm(url:string,f:(x:any)=>void):any {
-    var ModuleHogeInstance = typeof ModuleHogeInstance !== 'undefined' ? ModuleHogeInstance : {};
+  
+  getWasm(url:string,moduleName:any,f:(x:any)=>void):any {
+    //var ModuleHogeInstance = typeof ModuleHogeInstance !== 'undefined' ? ModuleHogeInstance : {};
     fetch(url)
       .then(response => response.arrayBuffer())
       .then(buffer => new Uint8Array(buffer))
       .then(binary => {
         var moduleArgs = {
           wasmBinary: binary,
-          onRuntimeInitialized: function () {
-            console.log('initialized');
+          onRuntimeInitialized: () => {
+            console.log('initialized!');
           }
         };
-        ModuleHogeInstance = ModuleHoge(moduleArgs);
-        ModuleHogeInstance.then((m) => {
-          f(m);
+        //ModuleHogeInstance = moduleName(moduleArgs);
+        //ModuleHogeInstance.then((m) => {
+        moduleName(moduleArgs).then((m) => {
+            f(m);
         });
       });
 
   }
-  */
+  
   click1(): void {
     console.log('押されたよ');
 
-    /*
-    this.getWasm('../assets/test1.wasm',(m)=>{this.instance1=m;});
-    this.getWasm('../assets/test2.wasm',(m)=>{this.instance2=m;});
-    */
-
+    
+    this.getWasm('../assets/test1.wasm',ModuleHoge, (m)=>{this.instance1=m;});
+    this.getWasm('../assets/test2.wasm',ModuleFuga, (m)=>{this.instance2=m;});
+    
+/*
     var ModuleHogeInstance = typeof ModuleHogeInstance !== 'undefined' ? ModuleHogeInstance : {};
     fetch('../assets/test1.wasm')
       .then(response => response.arrayBuffer())
@@ -76,6 +77,7 @@ export class AppComponent {
           this.instance2 = m;
         });
       });
+      */
   }
 
   click2(): void {
