@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'test-wasm';
+
+  click1():void {
+    console.log('押されたよ');
+  }
 }
