@@ -28,6 +28,23 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## 参考になりました
 
+C/C++からWebAssemblyにコンパイルする
+
+https://developer.mozilla.org/ja/docs/WebAssembly/C_to_wasm
+
+Interacting with code
+
+https://emscripten.org/docs/porting/connecting_cpp_and_javascript/Interacting-with-code.html
+
+
+ワンライナーWebサーバを集めてみた
+
+https://qiita.com/sudahiroshi/items/e74d61d939f18779970d
+
+Python3 ワンライナーHTTPサーバー
+$ python -m http.server 8000
+
+
 How to make Angular and WebAssembly work together
 
 https://componenthouse.com/2018/02/15/how-to-make-angular-and-webassembly-work-together/
