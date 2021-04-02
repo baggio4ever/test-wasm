@@ -12,4 +12,12 @@ export class PageTest3Component implements OnInit {
   ngOnInit(): void {
   }
 
+  click1_test3() {
+    console.log('click1_test3');
+  }
+
+  click2_test3() {
+    console.log('click2_test3');
+  }
+
 }
