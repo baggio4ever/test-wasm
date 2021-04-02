@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 
-declare var Module: any;
 declare var ModuleHoge: any;
 declare var ModuleFuga: any;
 
@@ -34,23 +33,23 @@ export class AppComponent {
         });
       });
 
-      var ModuleFugaInstance = typeof ModuleFugaInstance !== 'undefined' ? ModuleFugaInstance : {};
-      fetch('../assets/test2.wasm')
-        .then(response => response.arrayBuffer())
-        .then(buffer => new Uint8Array(buffer))
-        .then(binary => {
-          var moduleArgs = {
-            wasmBinary: binary,
-            onRuntimeInitialized: function () {
-              console.log('initialized2');
-            }
-          };
-          ModuleFugaInstance = ModuleFuga(moduleArgs);
-          ModuleFugaInstance.then((m) => {
-            this.instance2 = m;
-          });
+    var ModuleFugaInstance = typeof ModuleFugaInstance !== 'undefined' ? ModuleFugaInstance : {};
+    fetch('../assets/test2.wasm')
+      .then(response => response.arrayBuffer())
+      .then(buffer => new Uint8Array(buffer))
+      .then(binary => {
+        var moduleArgs = {
+          wasmBinary: binary,
+          onRuntimeInitialized: function () {
+            console.log('initialized2');
+          }
+        };
+        ModuleFugaInstance = ModuleFuga(moduleArgs);
+        ModuleFugaInstance.then((m) => {
+          this.instance2 = m;
         });
-  
+      });
+
   }
 
   click2(): void {
@@ -63,7 +62,7 @@ export class AppComponent {
       ['number', 'number'], // argument types
       [3, 9] // parameters
     );
-    console.log('multiply: '+ret);
+    console.log('multiply: ' + ret);
 
     var ret2 = this.instance1.ccall(
       'get_length', // function name
@@ -71,15 +70,16 @@ export class AppComponent {
       ['string'], // argument type
       ['Hello World!'] // parameter
     );
-    console.log('get_length: '+ret2);
+    console.log('get_length: ' + ret2);
 
-    var ret3 = this.plus(100,11);
-    console.log('plus: '+ret3);
+    var ret3 = this.plus(100, 11);
+    console.log('plus: ' + ret3);
 
     var ret4 = this.getLength2('Happy Friday!');
-    console.log('get_length2: '+ret4);
+    console.log('get_length2: ' + ret4);
   }
 
+  /*
   multiply(a: number, b: number): number {
     var ret = Module.ccall(
       'multiply', // function name
@@ -99,6 +99,7 @@ export class AppComponent {
     );
     return ret;
   }
+  */
 
   plus(a: number, b: number): number {
     var ret = this.instance2.ccall(
