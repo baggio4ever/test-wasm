@@ -65,3 +65,10 @@ https://stackoverflow.com/questions/42458346/need-to-insert-script-tag-in-angula
 Call Angular Function From JavaScript
 https://www.c-sharpcorner.com/blogs/call-angular-2-function-from-javascript
 JavaScriptからAngularのメソッドを呼ぶ方法が書いてある。
+
+Assets not cosidering base href url - not found error
+https://stackoverflow.com/questions/51730424/assets-not-cosidering-base-href-url-not-found-error
+サブディレクトリにデプロイするためには。
+ng build --base-href=/test-wasm/
+だけだと assetsフォルダのファイルにアクセスしようとしたら、404エラーになった。
+./assets/ とするのが良いみたい。
