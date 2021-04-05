@@ -1,4 +1,4 @@
-import { Component,ElementRef,ViewChild,Input, OnInit,AfterViewInit } from '@angular/core';
+import { Component,ElementRef,ViewChild,Input,Output,EventEmitter, OnInit,AfterViewInit } from '@angular/core';
 
 @Component({
   selector: 'app-script-tag',
@@ -12,6 +12,9 @@ export class ScriptTagComponent implements OnInit,AfterViewInit {
 
   @Input()
   type: string;
+
+  @Output()
+  loaded: EventEmitter<void> = new EventEmitter(); // 追加
 
   @ViewChild('script') script: ElementRef;
 
@@ -30,6 +33,12 @@ export class ScriptTagComponent implements OnInit,AfterViewInit {
     if(this.src) {
       script.src = this.src;
       script.async = true;
+      script.onload = ()=>{
+        if(this.loaded) {
+          console.log('onload: '+this.src);
+          this.loaded.emit();
+        }
+      }
     }
     //console.log('innerHtml: '+ element.innerHTML);
     if (element.innerHTML) {

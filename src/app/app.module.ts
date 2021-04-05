@@ -7,6 +7,7 @@ import { PageNotFoundComponent } from './error/page-not-found/page-not-found.com
 import { PageTest3Component } from './test/page-test3/page-test3.component';
 import { PageTest4Component } from './test/page-test4/page-test4.component';
 import { ScriptTagComponent } from './script-tag/script-tag.component';
+import { PageHomeComponent } from './page-home/page-home.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { ScriptTagComponent } from './script-tag/script-tag.component';
     PageNotFoundComponent,
     PageTest3Component,
     PageTest4Component,
-    ScriptTagComponent
+    ScriptTagComponent,
+    PageHomeComponent
   ],
   imports: [
     BrowserModule,
