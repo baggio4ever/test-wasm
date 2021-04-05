@@ -1,5 +1,4 @@
 import { Component, OnInit,AfterViewInit } from '@angular/core';
-//import '../../../assets/test3.js';
 
 declare var ModulePoo: any;
 

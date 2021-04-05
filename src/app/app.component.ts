@@ -94,24 +94,6 @@ export class AppComponent implements OnInit {
     console.log('押されたよ2');
     //console.log(this.instance);
 
-    /*
-    var ret = this.instance1.ccall(
-      'multiply', // function name
-      'number', // return type
-      ['number', 'number'], // argument types
-      [3, 9] // parameters
-    );
-    console.log('multiply: ' + ret);
-
-    var ret2 = this.instance1.ccall(
-      'get_length', // function name
-      'number', // return type
-      ['string'], // argument type
-      ['Hello World!'] // parameter
-    );
-    console.log('get_length: ' + ret2);
-    */
-
     var ret1 = this.multiply(7,8);
     console.log('multiply: '+ret1);
 
