@@ -63,7 +63,7 @@ export class PageTest4Component implements OnInit {
  
   click1_test4() {
     console.log('click1_test4');
-    this.getWasm('../../assets/test4.wasm',ModuleTest4, (m)=>{this.instance=m;});
+    this.getWasm('./assets/test4.wasm',ModuleTest4, (m)=>{this.instance=m;});
   }
 
   click2_test4() {

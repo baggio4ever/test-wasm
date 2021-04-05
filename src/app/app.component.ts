@@ -49,8 +49,8 @@ export class AppComponent implements OnInit {
     console.log('押されたよ');
 
     
-    this.getWasm('../assets/test1.wasm',ModuleHoge, (m)=>{this.instance1=m;});
-    this.getWasm('../assets/test2.wasm',ModuleFuga, (m)=>{this.instance2=m;});
+    this.getWasm('./assets/test1.wasm',ModuleHoge, (m)=>{this.instance1=m;});
+    this.getWasm('./assets/test2.wasm',ModuleFuga, (m)=>{this.instance2=m;});
     
 /*
     var ModuleHogeInstance = typeof ModuleHogeInstance !== 'undefined' ? ModuleHogeInstance : {};

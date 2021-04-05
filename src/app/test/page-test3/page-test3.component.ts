@@ -21,7 +21,7 @@ export class PageTest3Component implements OnInit,AfterViewInit {
 
     const script = document.createElement('script');
     script.async = true;
-    script.src = '../assets/test3.js';
+    script.src = './assets/test3.js';
 
     const div = document.getElementById('script');
     div.insertAdjacentElement('afterend',script);
@@ -50,7 +50,7 @@ export class PageTest3Component implements OnInit,AfterViewInit {
  
   click1_test3() {
     console.log('click1_test3');
-    this.getWasm('../../assets/test3.wasm',ModulePoo, (m)=>{this.instance=m;});
+    this.getWasm('./assets/test3.wasm',ModulePoo, (m)=>{this.instance=m;});
   }
 
   click2_test3() {
