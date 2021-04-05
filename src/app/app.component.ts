@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,NgZone,OnInit } from '@angular/core';
 
 declare var ModuleHoge: any;
 declare var ModuleFuga: any;
@@ -8,11 +8,20 @@ declare var ModuleFuga: any;
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'test-wasm';
   instance1 = null;
   instance2 = null;
 
+  constructor(private ngZone:NgZone) {}
+
+  ngOnInit() {
+    window['angularComponentReference'] = { component: this, zone: this.ngZone, loadAngularFunction: () => this.angularFunctionCalled(), };  
+  }
+
+  angularFunctionCalled() {
+    alert('Angular2+ function is called');
+  }
   
   getWasm(url:string,moduleName:any,f:(x:any)=>void):any {
     //var ModuleHogeInstance = typeof ModuleHogeInstance !== 'undefined' ? ModuleHogeInstance : {};

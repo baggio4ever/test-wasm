@@ -57,3 +57,7 @@ https://medium.com/axip/webassembly%E3%81%AE%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95
 Angularのテンプレート内で script タグを読み込む方法
 https://qiita.com/kenya-112163/items/c21cb98f8c8a96bf085d
 Componentで scriptタグを使う方法。2種類書いてある。
+
+Call Angular Function From JavaScript
+https://www.c-sharpcorner.com/blogs/call-angular-2-function-from-javascript
+JavaScriptからAngularのメソッドを呼ぶ方法が書いてある。
