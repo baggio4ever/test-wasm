@@ -11,6 +11,7 @@ export class PageHomeComponent implements OnInit,AfterViewInit {
 
   instance = null;
   logs:Array<string>=[];
+  count = -1;
 
   constructor(private ngZone:NgZone) { }
 
@@ -86,6 +87,36 @@ export class PageHomeComponent implements OnInit,AfterViewInit {
         [type, a, b] // parameters
       );
       return ret;
+  }
+
+  click_inc() {
+    var ret = this.instance.ccall(
+      'COUNTER_inc', // function name
+      'number', // return type
+      null, // argument types
+      null // parameters
+    );
+    this.count = ret;
+  }
+
+  click_dec() {
+    var ret = this.instance.ccall(
+      'COUNTER_dec', // function name
+      'number', // return type
+      null, // argument types
+      null // parameters
+    );
+    this.count = ret;
+  }
+
+  click_reset() {
+    var ret = this.instance.ccall(
+      'COUNTER_reset', // function name
+      'number', // return type
+      null, // argument types
+      null // parameters
+    );
+    this.count = ret;
   }
   
 }
