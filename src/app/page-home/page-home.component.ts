@@ -53,6 +53,11 @@ export class PageHomeComponent implements OnInit,AfterViewInit {
 
   }
  
+  home_loaded() {
+    console.log('home_loaded');
+    this.getWasm('../../assets/home.wasm',ModuleHome, (m)=>{this.instance=m;});
+  }
+
   load_wasm() {
     console.log('load_wasm');
     this.getWasm('../../assets/home.wasm',ModuleHome, (m)=>{this.instance=m;});
