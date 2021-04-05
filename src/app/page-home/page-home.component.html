@@ -1,0 +1,13 @@
+<p>page-home works!</p>
+
+<button (click)="load_wasm()">1. wasmをロード</button>
+<br>
+<div>
+    <button (click)="run_wasm()">2. wasm関数を呼ぶ</button><br>
+</div>
+<div *ngFor="let log of logs">
+    {{log}}
+</div>
+
+<app-script-tag src='../assets/home.js'></app-script-tag>
+<app-script-tag src='../assets/home_func.js'></app-script-tag>
