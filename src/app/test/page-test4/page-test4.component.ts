@@ -15,6 +15,22 @@ export class PageTest4Component implements OnInit {
 
   ngOnInit() {
     window['test4_angularComponentReference'] = { component: this, zone: this.ngZone, loadAngularFunction: () => this.angularFunctionCalled(), };  
+    window['test4_func1Reference'] = { component: this, zone: this.ngZone, loadAngularFunction: () => this.func1(), };  
+    window['test4_func2Reference'] = { component: this, zone: this.ngZone, loadAngularFunction: (a,b) => this.func2(a,b), };  
+  }
+
+  func1() {
+    console.log('PageTest4Component::func1');
+  }
+
+  func2(x:any,y:any) {
+    console.log('PageTest4Component::func2');
+    console.log('x: '+x);
+    if(x==='abc'){
+      console.log('y is string: '+y);
+    }else{
+      console.log('y is number: '+y);
+    }
   }
 
   angularFunctionCalled() {
@@ -60,6 +76,18 @@ export class PageTest4Component implements OnInit {
     console.log('int_minus: '+ret2);
   }
 
+  click3_test4() {
+    console.log('click3_test4');
+
+    this.wasm_func1();
+  }
+
+  click4_test4() {
+    console.log('click4_test4');
+
+    this.wasm_func2();
+  }
+
   int_plus(a: number, b: number): number {
     var ret = this.instance.ccall(
       'int_plus', // function name
@@ -78,6 +106,24 @@ export class PageTest4Component implements OnInit {
       [a, b] // parameters
     );
     return ret;
+  }
+
+  wasm_func1(): void {
+    var ret = this.instance.ccall(
+      'func1', // function name
+      null, // return type
+      null, // argument types
+      null // parameters
+    );
+  }
+
+  wasm_func2(): void {
+    var ret = this.instance.ccall(
+      'func2', // function name
+      null, // return type
+      null, // argument types
+      null // parameters
+    );
   }
 
 }

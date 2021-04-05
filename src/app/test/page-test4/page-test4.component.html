@@ -1,7 +1,11 @@
 <p>page-test4 works!</p>
 
 <button (click)="click1_test4()">load wasm</button>
-<button (click)="click2_test4()">run wasm</button>
+<div>
+    <button (click)="click2_test4()">run wasm</button>
+    <button (click)="click3_test4()">run wasm2</button>
+    <button (click)="click4_test4()">run wasm3</button>
+</div>
 
 <app-script-tag src='../assets/test4.js'></app-script-tag>
 <app-script-tag src='../assets/test4func.js'></app-script-tag>
@@ -16,5 +20,5 @@
 -->
 
 <div>
-    <button type="button" onclick="callAngularFunctionTest4();">Call Angular2+ Function </button>  
+    <button type="button" onclick="callAngularFunctionTest4();">Call Angular Function </button>  
 </div>
