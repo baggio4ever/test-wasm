@@ -5,6 +5,17 @@
 <div>
     <button (click)="run_wasm()">2. wasm関数を呼ぶ</button><br>
 </div>
+<div>
+    <select #type>
+        <option value="ADD" selected>加算</option>
+        <option value="SUB">減算</option>
+        <option value="MUL">乗算</option>
+        <option value="CONCAT">連結</option>
+    </select>
+    <input #val1 type="number">
+    <input #val2 type="number">
+    <button (click)="run_eval(type.value,val1.value,val2.value)">実行</button><br>
+</div>
 <div *ngFor="let log of logs">
     {{log}}
 </div>

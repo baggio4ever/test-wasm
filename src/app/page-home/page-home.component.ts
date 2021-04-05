@@ -67,9 +67,13 @@ export class PageHomeComponent implements OnInit,AfterViewInit {
     this.wasm_event('CONCAT',10,21);
   }
 
+  run_eval(op,v1,v2) {
+    this.wasm_event(op,v1,v2);
+  }
+
   //int EMSCRIPTEN_KEEPALIVE event( char* type,int p1,int p2) {
   wasm_event(type:string, a: number, b: number): number {
-      this.logs.push(`Q. ${type} ${a} ${b}`);
+      this.logs.push(`Q. ${type} ${a} ${b} ?`);
       var ret = this.instance.ccall(
         'event', // function name
         'number', // return type

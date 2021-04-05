@@ -42,7 +42,7 @@ int EMSCRIPTEN_KEEPALIVE event( char* type,int p1,int p2) {
 
     if(strcmp("CONCAT",type)==0) {
         char buf[1024];
-        sprintf(buf,"%d,%d",p1,p2);
+        sprintf(buf,"%d%d",p1,p2);
         call_js_function_string(type,buf);
         return 0;
     }
