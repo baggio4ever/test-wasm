@@ -1,0 +1,36 @@
+<h3>
+    test4
+</h3>
+<h5>
+    scriptタグを動的に埋め込むAngular Componentを使うサンプル
+</h5>
+<h5>
+    wasm関数を呼び出すサンプル
+</h5>
+<h5>
+    wasmからAngularのメソッドを（JavaScript関数経由で）呼び出すサンプル
+</h5>
+
+<button (click)="click1_test4()">1. wasmをロード</button>
+<br>
+<div>
+    <button (click)="click2_test4()">2-1. wasm関数を呼ぶ</button><br>
+    <button (click)="click3_test4()">2-2. wasm関数を呼ぶ（wasm側からAngularメソッドを呼ぶ1）</button><br>
+    <button (click)="click4_test4()">2-3. wasm関数を呼ぶ（wasm側からAngularメソッドを呼ぶ2）</button><br>
+</div>
+
+<app-script-tag src='../assets/test4.js'></app-script-tag>
+<app-script-tag src='../assets/test4func.js'></app-script-tag>
+<!--
+<app-script-tag>
+    <script>
+    function callAngularFunctionTest4() {  
+        window.angularComponentReference.zone.run(() => { window.angularComponentReference.loadAngularFunction(); });  
+    }
+    </script>
+</app-script-tag>
+-->
+
+<div>
+    <button type="button" onclick="callAngularFunctionTest4();">JavaScript関数からAngularメソッドを呼ぶ</button>  
+</div>

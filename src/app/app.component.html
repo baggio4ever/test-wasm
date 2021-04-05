@@ -1,6 +1,13 @@
 <h1>{{title}}</h1>
 
+<div>
+    <a routerLink='/'>home</a><br>
+    <a routerLink='test3'>test3</a><br>
+    <a routerLink='test4'>test4</a><br>
+    <a routerLink='zzz'>404</a><br>
+</div>
 
-<button (click)="click1()">Push me</button>
+<button (click)="click1()">1. wasmをロード（AppComponent）</button><br>
+<button (click)="click2()">2. wasm関数を実行（AppComponent）</button><br>
 
 <router-outlet></router-outlet>
