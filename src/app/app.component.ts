@@ -20,7 +20,8 @@ export class AppComponent implements OnInit {
   }
 
   angularFunctionCalled() {
-    alert('Angular2+ function is called');
+    //alert('Angular2+ function is called');
+    console.log('AppComponent::angularFunctionCalled');
   }
   
   getWasm(url:string,moduleName:any,f:(x:any)=>void):any {

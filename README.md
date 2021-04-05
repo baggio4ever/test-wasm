@@ -58,6 +58,10 @@ Angularのテンプレート内で script タグを読み込む方法
 https://qiita.com/kenya-112163/items/c21cb98f8c8a96bf085d
 Componentで scriptタグを使う方法。2種類書いてある。
 
+Need to insert Script tag in angular 2
+https://stackoverflow.com/questions/42458346/need-to-insert-script-tag-in-angular-2
+上のQiita記事の2つ目は、ここを参考に書いてある。上の記事のままでは動かない。こちらが正解。
+
 Call Angular Function From JavaScript
 https://www.c-sharpcorner.com/blogs/call-angular-2-function-from-javascript
 JavaScriptからAngularのメソッドを呼ぶ方法が書いてある。

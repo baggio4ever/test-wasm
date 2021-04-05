@@ -4,3 +4,17 @@
 <button (click)="click2_test4()">run wasm</button>
 
 <app-script-tag src='../assets/test4.js'></app-script-tag>
+<app-script-tag src='../assets/test4func.js'></app-script-tag>
+<!--
+<app-script-tag>
+    <script>
+    function callAngularFunctionTest4() {  
+        window.angularComponentReference.zone.run(() => { window.angularComponentReference.loadAngularFunction(); });  
+    }
+    </script>
+</app-script-tag>
+-->
+
+<div>
+    <button type="button" onclick="callAngularFunctionTest4();">Call Angular2+ Function </button>  
+</div>

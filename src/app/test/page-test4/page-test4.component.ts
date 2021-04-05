@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,NgZone } from '@angular/core';
 
 declare var ModuleTest4: any;
 
@@ -11,9 +11,17 @@ export class PageTest4Component implements OnInit {
 
   instance = null;
 
-  constructor() { }
+  constructor(private ngZone:NgZone) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    window['test4_angularComponentReference'] = { component: this, zone: this.ngZone, loadAngularFunction: () => this.angularFunctionCalled(), };  
+  }
+
+  angularFunctionCalled() {
+    // alert('Angular2+ function is called');
+    console.log('PageTest4Component::angularFunctionCalled');
+    console.log('instance:');
+    console.log(this.instance);
   }
 
   getWasm(url:string,moduleName:any,f:(x:any)=>void):any {
