@@ -8,6 +8,7 @@ import { PageTest3Component } from './test/page-test3/page-test3.component';
 import { PageTest4Component } from './test/page-test4/page-test4.component';
 import { ScriptTagComponent } from './script-tag/script-tag.component';
 import { PageHomeComponent } from './page-home/page-home.component';
+import { PageTestEmbindComponent } from './test/page-test-embind/page-test-embind.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { PageHomeComponent } from './page-home/page-home.component';
     PageTest3Component,
     PageTest4Component,
     ScriptTagComponent,
-    PageHomeComponent
+    PageHomeComponent,
+    PageTestEmbindComponent
   ],
   imports: [
     BrowserModule,
