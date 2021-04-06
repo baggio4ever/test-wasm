@@ -146,4 +146,10 @@ export class AppComponent implements OnInit {
     );
     return ret;
   }
+
+  is_extra_mode = false;
+  click_checkbox(checked:boolean) {
+    console.log(checked);
+    this.is_extra_mode = checked;
+  }
 }

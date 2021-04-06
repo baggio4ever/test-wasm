@@ -11,7 +11,7 @@ export class PageHomeComponent implements OnInit,AfterViewInit {
 
   instance = null;
   logs:Array<string>=[];
-  count = -1;
+  count = 0;
 
   constructor(private ngZone:NgZone) { }
 
