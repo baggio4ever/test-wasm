@@ -93,3 +93,27 @@ Embind
 https://emscripten.org/docs/porting/connecting_cpp_and_javascript/embind.html
 
 関数や構造体、クラスをJavaScriptとやり取りできる。
+
+
+Angular deployment - 404 on page Refresh
+
+https://stackoverflow.com/questions/45072185/angular-deployment-404-on-page-refresh?rq=1
+
+https://angular.io/guide/router#locationstrategy-and-browser-url-styles
+
+S3等に配置して、ブラウザに直接サブURL（？ /test-wasm/test3 みたいなやつ）を指定してアクセスすると、404エラーになる。
+その解決策がコレ。これしか方法ないのかしら？
+
+Angularで作ったサイトでリロードすると404エラー
+
+https://christina04.hatenablog.com/entry/2017/02/10/004253
+
+こんな情報も見つかった。
+
+S3側の設定で何とかする方法もあると。昔も何かのときにやったような気がしてきた。。
+
+試してみたがうまくいかなかった。１つのS3バケットで複数のアプリケーションをホストさせているから、404エラー時に /index.html を見るようにしてもダメ。解決案が見つかるまで ハッシュスタイルでいく。
+
+SPAを S3+CloudFront で表示する方法
+
+https://christina04.hatenablog.com/entry/2017/05/25/190000
