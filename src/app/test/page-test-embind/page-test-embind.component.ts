@@ -16,21 +16,6 @@ export class PageTestEmbindComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  click_do() {
-    var ret = this.instance.lerp(1, 2, 0.5);
-    console.log('lerp: '+ret);
-  }
-
-  click_do2() {
-    var a = new this.instance.MyClass(10,"Hello");
-    a.incrementX();
-    console.log(a.x);
-    a.x = 20;
-    console.log(a.x);
-    console.log(this.instance.MyClass.getStringFromInstance(a));
-    a.delete();
-  }
-
   test_embind_loaded() {
     console.log('embind_loaded');
     this.getWasm('./assets/test_embind.wasm',ModuleEmbind, (m)=>{this.instance=m;});
@@ -57,4 +42,26 @@ export class PageTestEmbindComponent implements OnInit {
 
   }
 
+  click_do() {
+    var ret = this.instance.lerp(1, 2, 0.5);
+    console.log('lerp: '+ret);
+  }
+
+  click_do2() {
+    var a = new this.instance.MyClass(10,"Hello");
+    a.incrementX();
+    console.log(a.x);
+    a.x = 20;
+    console.log(a.x);
+    console.log(this.instance.MyClass.getStringFromInstance(a));
+    a.delete();
+  }
+
+  click_do3() {
+    var person = this.instance.findPersonAtLocation([10.2,156.6]);
+    console.log(person);
+
+    var a = this.instance.getArrayInStruct();
+    console.log(a);
+  }
 }
