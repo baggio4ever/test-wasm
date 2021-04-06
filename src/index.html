@@ -6,16 +6,20 @@
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <!-- JavaScriptからAngularメソッドを呼ぶサンプルその１（試したければコメントアウト）
   <script type="text/javascript">  
     function callAngularFunction() {  
         window.angularComponentReference.zone.run(() => { window.angularComponentReference.loadAngularFunction(); });  
     }  
   </script>
+-->
 </head>
 <body>
+  <!-- JavaScriptからAngularメソッドを呼ぶサンプルその１（試したければコメントアウト）
   -- ここから index.html --<br>
   <button type="button" onclick="callAngularFunction();">JavaScript関数からAngularメソッド（AppComponent）を呼ぶ</button><br>
   -- ここまで index.html --<br>
+  -->
   <app-root></app-root>
   <script src="assets/test1.js"></script>
   <script src="assets/test2.js"></script>
