@@ -1,4 +1,5 @@
 import { Component, OnInit,AfterViewInit } from '@angular/core';
+import { CommonService } from '../../service/common.service';
 
 declare var ModulePoo: any;
 
@@ -11,7 +12,7 @@ export class PageTest3Component implements OnInit,AfterViewInit {
 
   instance = null;
 
-  constructor() { }
+  constructor(private common:CommonService) { }
 
   ngOnInit(): void {
   }
@@ -27,6 +28,7 @@ export class PageTest3Component implements OnInit,AfterViewInit {
     div.insertAdjacentElement('afterend',script);
   }
 
+  /*
   getWasm(url:string,moduleName:any,f:(x:any)=>void):any {
     //var ModuleHogeInstance = typeof ModuleHogeInstance !== 'undefined' ? ModuleHogeInstance : {};
     fetch(url)
@@ -47,10 +49,12 @@ export class PageTest3Component implements OnInit,AfterViewInit {
       });
 
   }
- 
+  */
+
   click1_test3() {
     console.log('click1_test3');
-    this.getWasm('./assets/test3.wasm',ModulePoo, (m)=>{this.instance=m;});
+    //this.getWasm('./assets/test3.wasm',ModulePoo, (m)=>{this.instance=m;});
+    this.common.getWasm('./assets/test3.wasm',ModulePoo, (m)=>{this.instance=m;});
   }
 
   click2_test3() {

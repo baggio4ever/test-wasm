@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonService } from '../../service/common.service'
 
 declare var ModuleEmbind: any;
 
@@ -11,16 +12,18 @@ export class PageTestEmbindComponent implements OnInit {
 
   instance = null;
 
-  constructor() { }
+  constructor(private common:CommonService) { }
 
   ngOnInit(): void {
   }
 
   test_embind_loaded() {
     console.log('embind_loaded');
-    this.getWasm('./assets/test_embind.wasm',ModuleEmbind, (m)=>{this.instance=m;});
+    //this.getWasm('./assets/test_embind.wasm',ModuleEmbind, (m)=>{this.instance=m;});
+    this.common.getWasm('./assets/test_embind.wasm',ModuleEmbind, (m)=>{this.instance=m;});
   }
 
+  /*
   getWasm(url:string,moduleName:any,f:(x:any)=>void):any {
     //var ModuleHogeInstance = typeof ModuleHogeInstance !== 'undefined' ? ModuleHogeInstance : {};
     fetch(url)
@@ -41,6 +44,7 @@ export class PageTestEmbindComponent implements OnInit {
       });
 
   }
+  */
 
   click_do() {
     var ret = this.instance.lerp(1, 2, 0.5);

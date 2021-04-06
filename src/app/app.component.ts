@@ -1,4 +1,5 @@
 import { Component,NgZone,OnInit } from '@angular/core';
+import { CommonService } from './service/common.service';
 
 declare var ModuleHoge: any;
 declare var ModuleFuga: any;
@@ -13,7 +14,7 @@ export class AppComponent implements OnInit {
   instance1 = null;
   instance2 = null;
 
-  constructor(private ngZone:NgZone) {}
+  constructor(private ngZone:NgZone,private common:CommonService) {}
 
   ngOnInit() {
     window['angularComponentReference'] = { component: this, zone: this.ngZone, loadAngularFunction: () => this.angularFunctionCalled(), };  
@@ -24,6 +25,7 @@ export class AppComponent implements OnInit {
     console.log('AppComponent::angularFunctionCalled');
   }
   
+  /*
   getWasm(url:string,moduleName:any,f:(x:any)=>void):any {
     //var ModuleHogeInstance = typeof ModuleHogeInstance !== 'undefined' ? ModuleHogeInstance : {};
     fetch(url)
@@ -44,13 +46,16 @@ export class AppComponent implements OnInit {
       });
 
   }
+  */
   
   click1(): void {
     console.log('押されたよ');
 
     
-    this.getWasm('./assets/test1.wasm',ModuleHoge, (m)=>{this.instance1=m;});
-    this.getWasm('./assets/test2.wasm',ModuleFuga, (m)=>{this.instance2=m;});
+    //this.getWasm('./assets/test1.wasm',ModuleHoge, (m)=>{this.instance1=m;});
+    //this.getWasm('./assets/test2.wasm',ModuleFuga, (m)=>{this.instance2=m;});
+    this.common.getWasm('./assets/test1.wasm',ModuleHoge, (m)=>{this.instance1=m;});
+    this.common.getWasm('./assets/test2.wasm',ModuleFuga, (m)=>{this.instance2=m;});
     
 /*
     var ModuleHogeInstance = typeof ModuleHogeInstance !== 'undefined' ? ModuleHogeInstance : {};

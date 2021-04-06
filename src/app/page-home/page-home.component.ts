@@ -1,4 +1,5 @@
 import { Component, OnInit,AfterViewInit, NgZone } from '@angular/core';
+import { CommonService } from '../service/common.service';
 
 declare var ModuleHome: any;
 
@@ -13,7 +14,7 @@ export class PageHomeComponent implements OnInit,AfterViewInit {
   logs:Array<string>=[];
   count = 0;
 
-  constructor(private ngZone:NgZone) { }
+  constructor(private ngZone:NgZone,private common:CommonService) { }
 
   ngOnInit(): void {
     window['home_funcReference'] = { component: this, zone: this.ngZone, loadAngularFunction: (a,b) => this.func_from_wasm(a,b), };  
@@ -33,6 +34,7 @@ export class PageHomeComponent implements OnInit,AfterViewInit {
     this.logs.push('A. '+p2);
   }
 
+  /*
   getWasm(url:string,moduleName:any,f:(x:any)=>void):any {
     //var ModuleHogeInstance = typeof ModuleHogeInstance !== 'undefined' ? ModuleHogeInstance : {};
     fetch(url)
@@ -53,15 +55,18 @@ export class PageHomeComponent implements OnInit,AfterViewInit {
       });
 
   }
- 
+  */
+
   home_loaded() {
     console.log('home_loaded');
-    this.getWasm('./assets/home.wasm',ModuleHome, (m)=>{this.instance=m;});
+    //this.getWasm('./assets/home.wasm',ModuleHome, (m)=>{this.instance=m;});
+    this.common.getWasm('./assets/home.wasm',ModuleHome, (m)=>{this.instance=m;});
   }
 
   load_wasm() {
     console.log('load_wasm');
-    this.getWasm('./assets/home.wasm',ModuleHome, (m)=>{this.instance=m;});
+    //this.getWasm('./assets/home.wasm',ModuleHome, (m)=>{this.instance=m;});
+    this.common.getWasm('./assets/home.wasm',ModuleHome, (m)=>{this.instance=m;});
   }
 
   run_wasm() {

@@ -1,4 +1,5 @@
 import { Component, OnInit,NgZone } from '@angular/core';
+import { CommonService } from '../../service/common.service';
 
 declare var ModuleTest4: any;
 
@@ -11,7 +12,7 @@ export class PageTest4Component implements OnInit {
 
   instance = null;
 
-  constructor(private ngZone:NgZone) { }
+  constructor(private ngZone:NgZone,private common:CommonService) { }
 
   ngOnInit() {
     window['test4_angularComponentReference'] = { component: this, zone: this.ngZone, loadAngularFunction: () => this.angularFunctionCalled(), };  
@@ -40,6 +41,7 @@ export class PageTest4Component implements OnInit {
     console.log(this.instance);
   }
 
+  /*
   getWasm(url:string,moduleName:any,f:(x:any)=>void):any {
     //var ModuleHogeInstance = typeof ModuleHogeInstance !== 'undefined' ? ModuleHogeInstance : {};
     fetch(url)
@@ -60,10 +62,12 @@ export class PageTest4Component implements OnInit {
       });
 
   }
+  */
  
   click1_test4() {
     console.log('click1_test4');
-    this.getWasm('./assets/test4.wasm',ModuleTest4, (m)=>{this.instance=m;});
+    //this.getWasm('./assets/test4.wasm',ModuleTest4, (m)=>{this.instance=m;});
+    this.common.getWasm('./assets/test4.wasm',ModuleTest4, (m)=>{this.instance=m;});
   }
 
   click2_test4() {
