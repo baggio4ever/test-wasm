@@ -66,6 +66,33 @@ ArrayInStruct getArrayInStruct(void) {
     return x;
 }
 
+
+
+struct Rect {
+    int x;
+    int y;
+    int width;
+    int height;
+};
+
+Rect offset_rect(Rect r,int dx,int dy) {
+    printf("[wasm] offset_rect x:%d, y:%d, width:%d, height:%d\n",r.x,r.y,r.width,r.height);
+    printf("[wasm] offset_rect dx:%d, dy:%d\n",dx,dy);
+
+    r.x += dx;
+    r.y += dy;
+    return r;
+}
+
+Rect inflate_rect(Rect r,int dw,int dh) {
+    printf("[wasm] inflate_rect x:%d, y:%d, width:%d, height:%d\n",r.x,r.y,r.width,r.height);
+    printf("[wasm] inflate_rect dw:%d, dh:%d\n",dw,dh);
+
+    r.width += dw;
+    r.height += dh;
+    return r;
+}
+
 EMSCRIPTEN_BINDINGS(my_module) {
     function("lerp",&lerp);
 
@@ -97,4 +124,14 @@ EMSCRIPTEN_BINDINGS(my_module) {
 
     function("findPersonAtLocation",&findPersonAtLocation);
     function("getArrayInStruct",&getArrayInStruct);
+
+    value_object<Rect>("Rect")
+    .field("x",&Rect::x)
+    .field("y",&Rect::y)
+    .field("width",&Rect::width)
+    .field("height",&Rect::height)
+    ;
+
+    function("offset_rect",&offset_rect);
+    function("inflate_rect",&inflate_rect);
 }

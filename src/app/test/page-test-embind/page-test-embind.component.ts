@@ -64,4 +64,20 @@ export class PageTestEmbindComponent implements OnInit {
     var a = this.instance.getArrayInStruct();
     console.log(a);
   }
+
+  click_do4() {
+    var r = {
+      x:10,
+      y:10,
+      width:100,
+      height:200
+    }
+    console.log(r);
+
+    var v = this.instance.offset_rect(r,100,400);
+    console.log(v);
+
+    var v2 = this.instance.inflate_rect(v,50,-50);
+    console.log(v2);
+  }
 }
