@@ -84,4 +84,13 @@ export class PageTestEmbindComponent implements OnInit {
     var v2 = this.instance.inflate_rect(v,50,-50);
     console.log(v2);
   }
+
+  click_init() {
+    this.instance.init_random_values();
+  }
+
+  click_getVal() {
+    var ret = this.instance.get_value();
+    console.log(ret);
+  }
 }

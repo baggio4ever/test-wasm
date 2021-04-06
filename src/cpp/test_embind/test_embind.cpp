@@ -47,6 +47,7 @@ struct ArrayInStruct {
     int field[2];
 };
 
+
 PersonRecord findPersonAtLocation(Point2f p) {
     printf("[wasm] findPersonAtLocation p.x:%f, p.y:%f\n",p.x,p.y);
 
